@@ -14,7 +14,7 @@ trait Filterable
         $filter->apply($builder);
     }
 
-    public function provideFilterClass($filter = null): ModelFilter
+    public function provideFilterClass($filter = null): string
     {
         if ($filter === null) {
             $filter = config('model-filter.namespace', 'App\\ModelFilters\\').class_basename($this).'Filter';

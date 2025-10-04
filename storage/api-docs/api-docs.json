@@ -1,0 +1,641 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Organizations Directory Api",
+        "description": "API for get information about organizations",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://webserver:7020",
+            "description": "local server"
+        }
+    ],
+    "paths": {
+        "/api/activities/{activity}/organizations": {
+            "get": {
+                "tags": [
+                    "Activities"
+                ],
+                "summary": "Get organizations by activity",
+                "description": "Returns organizations for the specified activity. Use include_descendants parameter to include child activities.",
+                "operationId": "c11a48e87ff8a469353191ecc0f785b6",
+                "parameters": [
+                    {
+                        "name": "activity",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "include_descendants",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "building",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/OrganizationResource"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Activity not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    },
+                    "401": {
+                        "description": "Unauthorized - Invalid API key"
+                    }
+                },
+                "security": [
+                    {
+                        "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/api/buildings/in-radius": {
+            "get": {
+                "tags": [
+                    "Buildings"
+                ],
+                "summary": "Get buildings within radius from coordinates",
+                "operationId": "90c044d6f3afff0d51e7f7f216f5dc22",
+                "parameters": [
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "radius",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/BuildingResource"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    },
+                    "401": {
+                        "description": "Unauthorized - Invalid API key"
+                    }
+                },
+                "security": [
+                    {
+                        "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/api/buildings/in-rectangle": {
+            "get": {
+                "tags": [
+                    "Buildings"
+                ],
+                "summary": "Get buildings within rectangular area",
+                "operationId": "e7681887295afaa5c0c1600330b15747",
+                "parameters": [
+                    {
+                        "name": "north",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "south",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "east",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "west",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/BuildingResource"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    },
+                    "401": {
+                        "description": "Unauthorized - Invalid API key"
+                    }
+                },
+                "security": [
+                    {
+                        "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/api/organizations": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Get all organizations with optional filtering",
+                "operationId": "a6f3e52e9b7995087fc40990424c2977",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "building",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "activity",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/OrganizationResource"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized - Invalid API key"
+                    }
+                },
+                "security": [
+                    {
+                        "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/api/organizations/{organization}": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Get organization by ID",
+                "operationId": "effcac3de5c029c2372022990ad7a48a",
+                "parameters": [
+                    {
+                        "name": "organization",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganizationResource"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Organization not found"
+                    },
+                    "401": {
+                        "description": "Unauthorized - Invalid API key"
+                    }
+                },
+                "security": [
+                    {
+                        "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/api/organizations/in-radius": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Get organizations within radius from coordinates",
+                "operationId": "67a03cacbe0dc3e9cb6bd1e5531fec6a",
+                "parameters": [
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "radius",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "building",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "activity",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/OrganizationResource"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    },
+                    "401": {
+                        "description": "Unauthorized - Invalid API key"
+                    }
+                },
+                "security": [
+                    {
+                        "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/api/organizations/in-rectangle": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Get organizations within rectangular area",
+                "operationId": "f9cf6464a477e6d24faa1e6a5cb7fe48",
+                "parameters": [
+                    {
+                        "name": "north",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "south",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "east",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "west",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "building",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "activity",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/OrganizationResource"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    },
+                    "401": {
+                        "description": "Unauthorized - Invalid API key"
+                    }
+                },
+                "security": [
+                    {
+                        "apiKey": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ActivityResource": {
+                "title": "Activity Resource",
+                "properties": {
+                    "id": {
+                        "description": "ID вида деятельности",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Название вида деятельности",
+                        "type": "string"
+                    },
+                    "parent": {
+                        "$ref": "#/components/schemas/ActivityResource"
+                    },
+                    "children": {
+                        "description": "Дочерние виды деятельности",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ActivityResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "BuildingResource": {
+                "title": "Building Resource",
+                "properties": {
+                    "id": {
+                        "description": "ID здания",
+                        "type": "integer"
+                    },
+                    "address": {
+                        "description": "Адрес здания",
+                        "properties": {
+                            "city": {
+                                "type": "string"
+                            },
+                            "street": {
+                                "type": "string"
+                            },
+                            "house": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "latitude": {
+                        "description": "Географическая широта",
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "longitude": {
+                        "description": "Географическая долгота",
+                        "type": "number",
+                        "format": "float"
+                    }
+                },
+                "type": "object"
+            },
+            "OrganizationPhoneResource": {
+                "title": "Organization Phone Resource",
+                "properties": {
+                    "id": {
+                        "description": "ID телефона",
+                        "type": "integer"
+                    },
+                    "number": {
+                        "description": "Номер телефона",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "OrganizationResource": {
+                "title": "Organization Resource",
+                "properties": {
+                    "id": {
+                        "description": "ID организации",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Название организации",
+                        "type": "string"
+                    },
+                    "building": {
+                        "$ref": "#/components/schemas/BuildingResource"
+                    },
+                    "phones": {
+                        "description": "Телефоны организации",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrganizationPhoneResource"
+                        }
+                    },
+                    "activities": {
+                        "description": "Виды деятельности организации",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ActivityResource"
+                        }
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "apiKey": {
+                "type": "apiKey",
+                "name": "X-API-Key",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Activities",
+            "description": "Activities"
+        },
+        {
+            "name": "Buildings",
+            "description": "Buildings"
+        },
+        {
+            "name": "Organizations",
+            "description": "Organizations"
+        }
+    ]
+}

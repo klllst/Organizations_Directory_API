@@ -15,7 +15,7 @@ abstract class ModelFilter
         $this->fields = $fields;
     }
 
-    protected function apply(Builder $builder)
+    public function apply(Builder $builder)
     {
         $this->builder = $builder;
 
