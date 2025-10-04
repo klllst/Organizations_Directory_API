@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->json('address');
             $table->decimal('latitude', 9, 6);
-            $table->decimal('latitude', 9, 6);
+            $table->decimal('longitude', 9, 6);
             $table->timestamps();
         });
     }

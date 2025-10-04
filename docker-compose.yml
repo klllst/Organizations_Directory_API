@@ -1,0 +1,41 @@
+version: '3.1'
+
+services:
+    nginx:
+        image: nginx:alpine
+        working_dir: /application
+        depends_on:
+            - php-fpm
+        volumes:
+            - .:/application
+            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+        ports:
+            - '7020:80'
+
+    php-fpm:
+        build: docker/php-fpm
+        platform: linux/amd64
+        working_dir: /application
+        depends_on:
+            - db
+        volumes:
+            - .:/application
+            - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/8.2/fpm/conf.d/99-overrides.ini
+
+    db:
+        image: mysql:8.0
+        working_dir: /application
+        volumes:
+            - .:/application
+            - mysql-volume:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=organizations_directory
+            - MYSQL_USER=organizations_directory_user
+            - MYSQL_PASSWORD=password
+        ports:
+            - '7022:3306'
+
+volumes:
+    mysql-volume:
+        driver: local
