@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Response;
 
 class VerifyApiKey
@@ -19,7 +18,7 @@ class VerifyApiKey
         $provideApiKey = $request->header('X-API-Key');
         $validApiKey = config('app.api_key');
 
-        if (!isset($provideApiKey) || $provideApiKey !== $validApiKey) {
+        if (! isset($provideApiKey) || $provideApiKey !== $validApiKey) {
             return response()->json(['error' => 'Invalid API key'], 401);
         }
 

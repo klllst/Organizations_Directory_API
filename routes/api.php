@@ -19,7 +19,7 @@ Route::middleware('api.key')->group(function () {
     });
 
     Route::prefix('activities')->name('activities.')->group(function () {
-       Route::get('{activity}/organizations', [ActivityController::class, 'getOrganizations'])
-           ->name('organizations');
+        Route::get('{activity}/organizations', [ActivityController::class, 'getOrganizations'])
+            ->name('organizations');
     });
 });

@@ -7,13 +7,13 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use OpenApi\Attributes as OA;
 
 #[OA\Schema(
-    schema: "OrganizationPhoneResource",
-    title: "Organization Phone Resource",
+    schema: 'OrganizationPhoneResource',
+    title: 'Organization Phone Resource',
     properties: [
-        new OA\Property(property: "id", description: "ID телефона", type: "integer"),
-        new OA\Property(property: "number", description: "Номер телефона", type: "string")
+        new OA\Property(property: 'id', description: 'ID телефона', type: 'integer'),
+        new OA\Property(property: 'number', description: 'Номер телефона', type: 'string'),
     ],
-    type: "object"
+    type: 'object'
 )]
 class OrganizationPhoneResource extends JsonResource
 {

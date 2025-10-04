@@ -17,7 +17,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $level
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- *
  * @property-read Activity|null $parent
  * @property-read Collection|Activity[] $children
  * @property-read Collection|Organization[] $organizations

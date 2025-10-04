@@ -24,7 +24,7 @@ class RadiusScopeRequest extends FormRequest
         return [
             'latitude' => 'required|numeric|between:-90,90',
             'longitude' => 'required|numeric|between:-180,180',
-            'radius' => 'sometimes|numeric|min:0.000001'
+            'radius' => 'sometimes|numeric|min:0.000001',
         ];
     }
 }

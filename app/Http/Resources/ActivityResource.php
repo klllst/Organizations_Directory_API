@@ -7,20 +7,20 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use OpenApi\Attributes as OA;
 
 #[OA\Schema(
-    schema: "ActivityResource",
-    title: "Activity Resource",
+    schema: 'ActivityResource',
+    title: 'Activity Resource',
     properties: [
-        new OA\Property(property: "id", description: "ID вида деятельности", type: "integer"),
-        new OA\Property(property: "name", description: "Название вида деятельности", type: "string"),
-        new OA\Property(property: "parent", ref: "#/components/schemas/ActivityResource", description: "Родительский вид деятельности"),
+        new OA\Property(property: 'id', description: 'ID вида деятельности', type: 'integer'),
+        new OA\Property(property: 'name', description: 'Название вида деятельности', type: 'string'),
+        new OA\Property(property: 'parent', ref: '#/components/schemas/ActivityResource', description: 'Родительский вид деятельности'),
         new OA\Property(
-            property: "children",
-            description: "Дочерние виды деятельности",
-            type: "array",
-            items: new OA\Items(ref: "#/components/schemas/ActivityResource")
-        )
+            property: 'children',
+            description: 'Дочерние виды деятельности',
+            type: 'array',
+            items: new OA\Items(ref: '#/components/schemas/ActivityResource')
+        ),
     ],
-    type: "object"
+    type: 'object'
 )]
 class ActivityResource extends JsonResource
 {

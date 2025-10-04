@@ -2,7 +2,6 @@
 
 namespace App\Traits;
 
-use App\ModelFilters\ModelFilter;
 use Illuminate\Database\Eloquent\Builder;
 
 trait Filterable

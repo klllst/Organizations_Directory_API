@@ -19,25 +19,25 @@ class DatabaseSeeder extends Seeder
                     'house' => '1',
                 ],
                 'latitude' => 55.755826,
-                'longitude' => 37.617299
+                'longitude' => 37.617299,
             ],
             [
                 'address' => [
                     'city' => 'Москва',
                     'street' => 'ул. Блюхера',
-                    'house' => '32/1'
+                    'house' => '32/1',
                 ],
                 'latitude' => 55.751244,
-                'longitude' => 37.618423
+                'longitude' => 37.618423,
             ],
             [
                 'address' => [
                     'city' => 'Москва',
                     'street' => 'ул. Тверская',
-                    'house' => '15, стр. 1'
+                    'house' => '15, стр. 1',
                 ],
                 'latitude' => 55.760241,
-                'longitude' => 37.607421
+                'longitude' => 37.607421,
             ],
             [
                 'address' => [
@@ -46,44 +46,44 @@ class DatabaseSeeder extends Seeder
                     'house' => '25',
                 ],
                 'latitude' => 55.781568,
-                'longitude' => 37.633324
+                'longitude' => 37.633324,
             ],
             [
                 'address' => [
                     'city' => 'Москва',
                     'street' => 'ул. Новый Арбат',
-                    'house' => '21'
+                    'house' => '21',
                 ],
                 'latitude' => 55.752220,
-                'longitude' => 37.592579
+                'longitude' => 37.592579,
             ],
             [
                 'address' => [
                     'city' => 'Москва',
                     'street' => 'ул. Пушкина',
-                    'house' => '10'
+                    'house' => '10',
                 ],
                 'latitude' => 55.764912,
-                'longitude' => 37.606857
+                'longitude' => 37.606857,
             ],
             [
                 'address' => [
                     'city' => 'Москва',
                     'street' => 'Кутузовский проспект',
-                    'house' => '32'
+                    'house' => '32',
                 ],
                 'latitude' => 55.742046,
-                'longitude' => 37.534121
+                'longitude' => 37.534121,
             ],
             [
                 'address' => [
                     'city' => 'Москва',
                     'street' => 'Ленинградский проспект',
-                    'house' => '47'
+                    'house' => '47',
                 ],
                 'latitude' => 55.796391,
-                'longitude' => 37.535351
-            ]
+                'longitude' => 37.535351,
+            ],
         ];
 
         $buildingModels = [];
@@ -136,157 +136,157 @@ class DatabaseSeeder extends Seeder
                 'name' => 'ООО "Рога и Копыта"',
                 'building_id' => $buildingModels[0]->id,
                 'phones' => ['2-222-222', '3-333-333', '8-923-666-13-13'],
-                'activities' => [$meat->id, $dairy->id]
+                'activities' => [$meat->id, $dairy->id],
             ],
             [
                 'name' => 'ЗАО "Мясной двор"',
                 'building_id' => $buildingModels[1]->id,
                 'phones' => ['5-555-555', '8-900-123-45-67'],
-                'activities' => [$beef->id, $pork->id]
+                'activities' => [$beef->id, $pork->id],
             ],
             [
                 'name' => 'ОАО "Молокозавод №1"',
                 'building_id' => $buildingModels[2]->id,
                 'phones' => ['6-666-666', '8-901-234-56-78'],
-                'activities' => [$milk->id, $cheese->id, $yogurt->id]
+                'activities' => [$milk->id, $cheese->id, $yogurt->id],
             ],
             [
                 'name' => 'ИП Сидоров "Свежий хлеб"',
                 'building_id' => $buildingModels[3]->id,
                 'phones' => ['7-777-777'],
-                'activities' => [$bakery->id]
+                'activities' => [$bakery->id],
             ],
             [
                 'name' => 'ООО "Напитки Сибири"',
                 'building_id' => $buildingModels[4]->id,
                 'phones' => ['8-888-888', '8-902-345-67-89'],
-                'activities' => [$beverages->id]
+                'activities' => [$beverages->id],
             ],
 
             [
                 'name' => 'АвтоМир',
                 'building_id' => $buildingModels[5]->id,
                 'phones' => ['4-444-444'],
-                'activities' => [$parts->id, $accessories->id]
+                'activities' => [$parts->id, $accessories->id],
             ],
             [
                 'name' => 'ООО "Грузовики-Сервис"',
                 'building_id' => $buildingModels[6]->id,
                 'phones' => ['9-999-999', '8-903-456-78-90'],
-                'activities' => [$trucks->id]
+                'activities' => [$trucks->id],
             ],
             [
                 'name' => 'Автосалон "Престиж"',
                 'building_id' => $buildingModels[7]->id,
                 'phones' => ['1-111-111', '8-904-567-89-01'],
-                'activities' => [$passenger->id]
+                'activities' => [$passenger->id],
             ],
             [
                 'name' => 'Магазин "Шины-Онлайн"',
                 'building_id' => $buildingModels[0]->id,
                 'phones' => ['2-123-456'],
-                'activities' => [$tires->id]
+                'activities' => [$tires->id],
             ],
 
             [
                 'name' => 'ООО "Компьютерный мир"',
                 'building_id' => $buildingModels[1]->id,
                 'phones' => ['3-234-567', '8-905-678-90-12'],
-                'activities' => [$laptops->id, $desktops->id]
+                'activities' => [$laptops->id, $desktops->id],
             ],
             [
                 'name' => 'Салон связи "МегаФон"',
                 'building_id' => $buildingModels[2]->id,
                 'phones' => ['4-345-678'],
-                'activities' => [$phones->id]
+                'activities' => [$phones->id],
             ],
             [
                 'name' => 'Магазин "Бытовая техника"',
                 'building_id' => $buildingModels[3]->id,
                 'phones' => ['5-456-789', '8-906-789-01-23'],
-                'activities' => [$homeAppliances->id]
+                'activities' => [$homeAppliances->id],
             ],
             [
                 'name' => 'Интернет-магазин "Комплектующие.ру"',
                 'building_id' => $buildingModels[4]->id,
                 'phones' => ['6-567-890'],
-                'activities' => [$components->id]
+                'activities' => [$components->id],
             ],
 
             [
                 'name' => 'Бутик "Мужская классика"',
                 'building_id' => $buildingModels[5]->id,
                 'phones' => ['7-678-901'],
-                'activities' => [$mensClothing->id]
+                'activities' => [$mensClothing->id],
             ],
             [
                 'name' => 'Магазин "Женский стиль"',
                 'building_id' => $buildingModels[6]->id,
                 'phones' => ['8-789-012', '8-907-890-12-34'],
-                'activities' => [$womensClothing->id]
+                'activities' => [$womensClothing->id],
             ],
             [
                 'name' => 'Детский мир "Радуга"',
                 'building_id' => $buildingModels[7]->id,
                 'phones' => ['9-890-123'],
-                'activities' => [$childrensClothing->id]
+                'activities' => [$childrensClothing->id],
             ],
 
             [
                 'name' => 'Банк "Финансовый партнер"',
                 'building_id' => $buildingModels[0]->id,
                 'phones' => ['1-901-234', '8-908-901-23-45'],
-                'activities' => [$financial->id]
+                'activities' => [$financial->id],
             ],
             [
                 'name' => 'Юридическая фирма "Право и закон"',
                 'building_id' => $buildingModels[1]->id,
                 'phones' => ['2-012-345'],
-                'activities' => [$legal->id]
+                'activities' => [$legal->id],
             ],
             [
                 'name' => 'Медицинский центр "Здоровье"',
                 'building_id' => $buildingModels[2]->id,
                 'phones' => ['3-123-456', '8-909-012-34-56'],
-                'activities' => [$medical->id]
+                'activities' => [$medical->id],
             ],
 
             [
                 'name' => 'Супермаркет "Продукты 24/7"',
                 'building_id' => $buildingModels[3]->id,
                 'phones' => ['4-234-567'],
-                'activities' => [$food->id, $beverages->id]
+                'activities' => [$food->id, $beverages->id],
             ],
             [
                 'name' => 'Автосервис "Мастер"',
                 'building_id' => $buildingModels[4]->id,
                 'phones' => ['5-345-678', '8-910-123-45-67'],
-                'activities' => [$parts->id]
+                'activities' => [$parts->id],
             ],
             [
                 'name' => 'IT компания "ТехноСофт"',
                 'building_id' => $buildingModels[5]->id,
                 'phones' => ['6-456-789'],
-                'activities' => [$computers->id, $components->id]
+                'activities' => [$computers->id, $components->id],
             ],
             [
                 'name' => 'Аптека "Фармацевт"',
                 'building_id' => $buildingModels[6]->id,
                 'phones' => ['7-567-890'],
-                'activities' => [$medical->id]
+                'activities' => [$medical->id],
             ],
             [
                 'name' => 'Строительная компания "СтройГарант"',
                 'building_id' => $buildingModels[7]->id,
                 'phones' => ['8-678-901', '8-911-234-56-78'],
-                'activities' => [$services->id]
-            ]
+                'activities' => [$services->id],
+            ],
         ];
 
         foreach ($organizations as $orgData) {
             $org = Organization::create([
                 'name' => $orgData['name'],
-                'building_id' => $orgData['building_id']
+                'building_id' => $orgData['building_id'],
             ]);
 
             foreach ($orgData['phones'] as $phone) {
@@ -301,26 +301,26 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Кафе "Уют"',
                 'building_id' => $buildingModels[0]->id,
                 'phones' => ['1-234-567'],
-                'activities' => [$food->id]
+                'activities' => [$food->id],
             ],
             [
                 'name' => 'Ресторан "Гурман"',
                 'building_id' => $buildingModels[1]->id,
                 'phones' => ['2-345-678'],
-                'activities' => [$food->id, $beverages->id]
+                'activities' => [$food->id, $beverages->id],
             ],
             [
                 'name' => 'Столовая "Вкусно и точка"',
                 'building_id' => $buildingModels[2]->id,
                 'phones' => ['3-456-789'],
-                'activities' => [$food->id]
-            ]
+                'activities' => [$food->id],
+            ],
         ];
 
         foreach ($additionalOrgs as $orgData) {
             $org = Organization::create([
                 'name' => $orgData['name'],
-                'building_id' => $orgData['building_id']
+                'building_id' => $orgData['building_id'],
             ]);
 
             foreach ($orgData['phones'] as $phone) {
@@ -331,8 +331,8 @@ class DatabaseSeeder extends Seeder
         }
 
         $this->command->info('База данных заполнена тестовыми данными:');
-        $this->command->info('- ' . count($buildingModels) . ' зданий');
-        $this->command->info('- ' . Activity::count() . ' видов деятельности');
-        $this->command->info('- ' . Organization::count() . ' организаций');
+        $this->command->info('- '.count($buildingModels).' зданий');
+        $this->command->info('- '.Activity::count().' видов деятельности');
+        $this->command->info('- '.Organization::count().' организаций');
     }
 }

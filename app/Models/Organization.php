@@ -17,7 +17,6 @@ use Illuminate\Support\Collection;
  * @property int $building_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- *
  * @property-read Building $building
  * @property-read Collection|OrganizationPhone[] $phones
  * @property-read Collection|Activity[] $activities
@@ -26,7 +25,7 @@ use Illuminate\Support\Collection;
  */
 class Organization extends Model
 {
-    use HasFactory, Filterable;
+    use Filterable, HasFactory;
 
     protected $fillable = [
         'name',

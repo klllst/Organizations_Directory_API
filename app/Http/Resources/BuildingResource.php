@@ -7,24 +7,24 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use OpenApi\Attributes as OA;
 
 #[OA\Schema(
-    schema: "BuildingResource",
-    title: "Building Resource",
+    schema: 'BuildingResource',
+    title: 'Building Resource',
     properties: [
-        new OA\Property(property: "id", description: "ID здания", type: "integer"),
+        new OA\Property(property: 'id', description: 'ID здания', type: 'integer'),
         new OA\Property(
-            property: "address",
-            description: "Адрес здания",
+            property: 'address',
+            description: 'Адрес здания',
             properties: [
-                new OA\Property(property: "city", type: "string"),
-                new OA\Property(property: "street", type: "string"),
-                new OA\Property(property: "house", type: "string"),
+                new OA\Property(property: 'city', type: 'string'),
+                new OA\Property(property: 'street', type: 'string'),
+                new OA\Property(property: 'house', type: 'string'),
             ],
-            type: "object"
+            type: 'object'
         ),
-        new OA\Property(property: "latitude", description: "Географическая широта", type: "number", format: "float"),
-        new OA\Property(property: "longitude", description: "Географическая долгота", type: "number", format: "float")
+        new OA\Property(property: 'latitude', description: 'Географическая широта', type: 'number', format: 'float'),
+        new OA\Property(property: 'longitude', description: 'Географическая долгота', type: 'number', format: 'float'),
     ],
-    type: "object"
+    type: 'object'
 )]
 class BuildingResource extends JsonResource
 {
@@ -42,7 +42,7 @@ class BuildingResource extends JsonResource
             'address.house' => $this->address['house'],
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
-            'organizations' => $this->whenLoaded('organizations')
+            'organizations' => $this->whenLoaded('organizations'),
         ];
     }
 }
