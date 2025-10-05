@@ -13,7 +13,7 @@ REST API приложение для справочника организаци
 - cp .env.example .env
 
 2. Соберите и запустите docker контейнеры
-- docker-compose up -d
+- docker-compose up -d --build
 
 3. Установите зависимости
 - docker-compose exec php-fpm bash
