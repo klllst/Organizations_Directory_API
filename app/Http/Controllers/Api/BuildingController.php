@@ -59,10 +59,10 @@ class BuildingController extends Controller
         security: [['apiKey' => []]],
         tags: ['Buildings'],
         parameters: [
-            new OA\Parameter(name: 'north', in: 'query', required: true, schema: new OA\Schema(type: 'number', format: 'float')),
             new OA\Parameter(name: 'south', in: 'query', required: true, schema: new OA\Schema(type: 'number', format: 'float')),
-            new OA\Parameter(name: 'east', in: 'query', required: true, schema: new OA\Schema(type: 'number', format: 'float')),
+            new OA\Parameter(name: 'north', in: 'query', required: true, schema: new OA\Schema(type: 'number', format: 'float')),
             new OA\Parameter(name: 'west', in: 'query', required: true, schema: new OA\Schema(type: 'number', format: 'float')),
+            new OA\Parameter(name: 'east', in: 'query', required: true, schema: new OA\Schema(type: 'number', format: 'float')),
         ],
         responses: [
             new OA\Response(
@@ -79,10 +79,10 @@ class BuildingController extends Controller
     )]
     public function inRectangle(RectangleScopeRequest $request): AnonymousResourceCollection
     {
-        $north = $request->get('north');
         $south = $request->get('south');
-        $east = $request->get('east');
+        $north = $request->get('north');
         $west = $request->get('west');
+        $east = $request->get('east');
 
         $buildings = Building::with([
             'organizations.phones',

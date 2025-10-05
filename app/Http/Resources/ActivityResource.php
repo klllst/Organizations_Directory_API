@@ -12,6 +12,7 @@ use OpenApi\Attributes as OA;
     properties: [
         new OA\Property(property: 'id', description: 'ID вида деятельности', type: 'integer'),
         new OA\Property(property: 'name', description: 'Название вида деятельности', type: 'string'),
+        new OA\Property(property: 'level', description: 'Уровень вложенности вида деятельности', type: 'integer'),
         new OA\Property(property: 'parent', ref: '#/components/schemas/ActivityResource', description: 'Родительский вид деятельности'),
         new OA\Property(
             property: 'children',

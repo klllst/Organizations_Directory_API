@@ -22,7 +22,7 @@ class ActivityOrganizationsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'include_descendants' => 'sometimes|boolean',
+            'include_descendants' => 'sometimes|in:true,false',
             'search' => 'sometimes|string|max:255',
             'building' => 'sometimes|integer|exists:buildings,id',
         ];

@@ -19,7 +19,7 @@
                 ],
                 "summary": "Get organizations by activity",
                 "description": "Returns organizations for the specified activity. Use include_descendants parameter to include child activities.",
-                "operationId": "c11a48e87ff8a469353191ecc0f785b6",
+                "operationId": "bd671bc8cab34b978ed70b1004554351",
                 "parameters": [
                     {
                         "name": "activity",
@@ -159,15 +159,6 @@
                 "operationId": "e7681887295afaa5c0c1600330b15747",
                 "parameters": [
                     {
-                        "name": "north",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "number",
-                            "format": "float"
-                        }
-                    },
-                    {
                         "name": "south",
                         "in": "query",
                         "required": true,
@@ -177,7 +168,7 @@
                         }
                     },
                     {
-                        "name": "east",
+                        "name": "north",
                         "in": "query",
                         "required": true,
                         "schema": {
@@ -187,6 +178,15 @@
                     },
                     {
                         "name": "west",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "east",
                         "in": "query",
                         "required": true,
                         "schema": {
@@ -420,15 +420,6 @@
                 "operationId": "f9cf6464a477e6d24faa1e6a5cb7fe48",
                 "parameters": [
                     {
-                        "name": "north",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "number",
-                            "format": "float"
-                        }
-                    },
-                    {
                         "name": "south",
                         "in": "query",
                         "required": true,
@@ -438,7 +429,7 @@
                         }
                     },
                     {
-                        "name": "east",
+                        "name": "north",
                         "in": "query",
                         "required": true,
                         "schema": {
@@ -448,6 +439,15 @@
                     },
                     {
                         "name": "west",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "east",
                         "in": "query",
                         "required": true,
                         "schema": {
@@ -521,6 +521,10 @@
                     "name": {
                         "description": "Название вида деятельности",
                         "type": "string"
+                    },
+                    "level": {
+                        "description": "Уровень вложенности вида деятельности",
+                        "type": "integer"
                     },
                     "parent": {
                         "$ref": "#/components/schemas/ActivityResource"

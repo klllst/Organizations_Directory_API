@@ -132,10 +132,10 @@ class OrganizationController extends Controller
         security: [['apiKey' => []]],
         tags: ['Organizations'],
         parameters: [
-            new OA\Parameter(name: 'north', in: 'query', required: true, schema: new OA\Schema(type: 'number', format: 'float')),
             new OA\Parameter(name: 'south', in: 'query', required: true, schema: new OA\Schema(type: 'number', format: 'float')),
-            new OA\Parameter(name: 'east', in: 'query', required: true, schema: new OA\Schema(type: 'number', format: 'float')),
+            new OA\Parameter(name: 'north', in: 'query', required: true, schema: new OA\Schema(type: 'number', format: 'float')),
             new OA\Parameter(name: 'west', in: 'query', required: true, schema: new OA\Schema(type: 'number', format: 'float')),
+            new OA\Parameter(name: 'east', in: 'query', required: true, schema: new OA\Schema(type: 'number', format: 'float')),
             new OA\Parameter(name: 'search', in: 'query', required: false, schema: new OA\Schema(type: 'string')),
             new OA\Parameter(name: 'building', in: 'query', required: false, schema: new OA\Schema(type: 'integer')),
             new OA\Parameter(name: 'activity', in: 'query', required: false, schema: new OA\Schema(type: 'integer')),
@@ -155,10 +155,10 @@ class OrganizationController extends Controller
     )]
     public function inRectangle(RectangleScopeRequest $request): AnonymousResourceCollection
     {
-        $north = $request->get('north');
         $south = $request->get('south');
-        $east = $request->get('east');
+        $north = $request->get('north');
         $west = $request->get('west');
+        $east = $request->get('east');
 
         $organizations = Organization::filter($request->all())
             ->with([
