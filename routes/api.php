@@ -10,7 +10,7 @@ Route::middleware('api.key')->group(function () {
         Route::get('/', [OrganizationController::class, 'index'])->name('index');
         Route::get('/in-radius', [OrganizationController::class, 'inRadius'])->name('in-radius');
         Route::get('/in-rectangle', [OrganizationController::class, 'inRectangle'])->name('in-rectangle');
-        Route::get('{organization}}', [OrganizationController::class, 'show'])->name('show');
+        Route::get('{organization}', [OrganizationController::class, 'show'])->name('show');
     });
 
     Route::prefix('buildings')->name('buildings.')->group(function () {
